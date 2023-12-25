@@ -1,54 +1,36 @@
 import { hopeTheme } from "vuepress-theme-hope";
-import { enNavbar, zhNavbar } from "./navbar/index.js";
-import { enSidebar, zhSidebar } from "./sidebar/index.js";
 
 export default hopeTheme({
   hostname: "https://vuepress-theme-hope-docs-demo.netlify.app",
 
   author: {
-    name: "Mr.Hope",
+    name: "sanhong.zhao",
     url: "https://mister-hope.com",
   },
 
   iconAssets: "fontawesome-with-brands",
 
-  logo: "/logo.svg",
+  logo: "/devops.png",
 
   repo: "vuepress-theme-hope/vuepress-theme-hope",
 
+  // 全屏按钮
+  fullscreen: true,
+
+  // 返回顶部
+  backToTop: true,
+
+  // 打印按钮
+  print: true,
+
   docsDir: "src",
+
+  displayFooter: true,
+  copyright: false,
+  footer: "MIT LICENSE | Copyright © 2022-present 番天印-三红",
 
   locales: {
     "/": {
-      // navbar
-      navbar: enNavbar,
-
-      // sidebar
-      sidebar: enSidebar,
-
-      footer: "Default footer",
-
-      displayFooter: true,
-
-      metaLocales: {
-        editLink: "Edit this page on GitHub",
-      },
-    },
-
-    /**
-     * Chinese locale config
-     */
-    "/zh/": {
-      // navbar
-      navbar: zhNavbar,
-
-      // sidebar
-      sidebar: zhSidebar,
-
-      footer: "默认页脚",
-
-      displayFooter: true,
-
       // page meta
       metaLocales: {
         editLink: "在 GitHub 上编辑此页",
@@ -62,6 +44,31 @@ export default hopeTheme({
       "/zh/demo/encrypt.html": ["1234"],
     },
   },
+
+  navbar: [
+    {
+      text: "指南",
+      link: "/zh/guide/README.md",
+      icon: "lightbulb",
+      // 仅在 `/zh/guide/` 激活
+      activeMatch: "^/zh/guide/$",
+    },
+    { text: "配置", link: "/zh/config/README.md", icon: "config" },
+    {
+      text: "常见问题",
+      link: "/zh/faq.md",
+      icon: "circle-question",
+      // 会在 `/zh/faq` 开头的路径激活
+      // 所以当你前往 `/zh/faq/xxx.html` 时也会激活
+      activeMatch: "^/zh/faq",
+    },
+    {
+      text: "基础",
+      icon: "circle-info",
+      prefix: "/zh/basic/",
+      children: ["markdown.md", "vuepress.md"],
+    },
+  ],
 
   plugins: {
     // You should generate and use your own comment service
@@ -93,7 +100,6 @@ export default hopeTheme({
       playground: {
         presets: ["ts", "vue"],
       },
-      presentation: ["highlight", "math", "search", "notes", "zoom"],
       stylize: [
         {
           matcher: "Recommended",
