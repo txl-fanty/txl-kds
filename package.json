@@ -1,6 +1,7 @@
 {
-  "name": "txl-kds",
+  "name": "@txl/txl-kds",
   "version": "2.0.0",
+  "private": "false",
   "description": "txl-kds",
   "license": "MIT",
   "type": "module",
@@ -18,9 +19,9 @@
     "flowchart.ts": "^2.0.0",
     "katex": "^0.16.9",
     "mermaid": "^10.6.1",
-    "vue": "^3.3.13",
+    "vue": "^3.4.0",
     "vuepress": "2.0.0-rc.0",
-    "vuepress-plugin-search-pro": "^2.0.0-rc.5",
-    "vuepress-theme-hope": "2.0.0-rc.5"
+    "vuepress-plugin-search-pro": "2.0.0-rc.7",
+    "vuepress-theme-hope": "2.0.0-rc.7"
   }
 }
